@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<CbrNode id="CbrNode">
+		<GroupCbrNode id="CbrNode">
+			<FIELD_NM id="NetPropAllowIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="ProcCfxCustodianIn" IPM_ID="700">Y</FIELD_NM>
+			<FIELD_NM id="SdsIn" IPM_ID="700">Y</FIELD_NM>
+			<FIELD_NM id="LastChangeTp" IPM_ID="700">EDIT</FIELD_NM>
+			<FIELD_NM id="NetNonPropSpfcTpAllowIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="LocationId" IPM_ID="700">BGAEB4312209</FIELD_NM>
+			<FIELD_NM id="BuDeleteIn" IPM_ID="700"/>
+			<FIELD_NM id="BuValidationRule" IPM_ID="700">ALLOW</FIELD_NM>
+			<FIELD_NM id="OprIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="BusinessUnitStatus" IPM_ID="700">ACTIVE</FIELD_NM>
+			<FIELD_NM id="PreAdvicePurgeDays" IPM_ID="700">0</FIELD_NM>
+			<FIELD_NM id="DepartmentNm" IPM_ID="700">DEC2002 CBR DEPT</FIELD_NM>
+			<FIELD_NM id="SenderBicBuId" IPM_ID="700"/>
+			<FIELD_NM id="NetNonPropAllowIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="ApprovalStatus" IPM_ID="700">APPROVED</FIELD_NM>
+			<FIELD_NM id="ClsnetEligibleIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="DefMappingTrig" IPM_ID="700">O</FIELD_NM>
+			<FIELD_NM id="ClsnetSuspendIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="TradeSubmissionIn" IPM_ID="700">N</FIELD_NM>
+			<FIELD_NM id="BankIdentifierCd" IPM_ID="700">BOFAGB20CLS</FIELD_NM>
+			<FIELD_NM id="LocationNm" IPM_ID="700">CENTRO DE LIMA</FIELD_NM>
+			<FIELD_NM id="MatchTemplateId" IPM_ID="700"/>
+			
+			
+		</GroupCbrNode>
+   
+	</CbrNode>
+<!-- <?xml version="1.0" encoding="UTF-8"?>    
+<Employee>    
+   <emp>    
+      <id>1</id>    
+      <name>Faisal</name>    
+      <gender>Male</gender>    
+      <mobile>514545</mobile>    
+   </emp>    
+   <emp>    
+      <id>2</id>    
+      <name>Bhavdip</name>    
+      <gender>Male</gender>    
+      <mobile>5431643</mobile>    
+   </emp>    
+   <emp>    
+      <id>3</id>    
+      <name>Irshad</name>    
+      <gender>Male</gender>    
+      <mobile>43265436</mobile>    
+   </emp>    
+   <emp>    
+      <id>4</id>    
+      <name>Keyur</name>    
+      <gender>Male</gender>    
+      <mobile>5435431</mobile>    
+   </emp>    
+   <emp>    
+      <id>5</id>    
+      <name>Tabish</name>    
+      <gender>Male</gender>    
+      <mobile>432656</mobile>    
+   </emp>    
+</Employee>   -->

@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+@use'@finastra/angular-theme' as fds;
+@use'@finastra/angular-theme/base';
+
+@include fds.uxg-core();
+@include fds.uxg-material-theme(fds.$light-theme);

@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminComponent } from './admin.component';
+import { UserPageComponent } from './userspage/user-page/user-page.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
+
+
+@NgModule({
+  declarations: [
+    AdminComponent,
+    UserPageComponent,
+    
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTreeModule,
+    
+  ]
+})
+export class AdminModule { }

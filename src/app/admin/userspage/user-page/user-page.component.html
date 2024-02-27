@@ -1,0 +1,124 @@
+<nav class="navbar bg-body-tertiary">
+    <!-- <div class="container-fluid"> -->
+        <button class="navbar-toggler" style="margin-left: 16px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <!-- </div> -->
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../../../../assets/brand.svg" alt="Bootstrap" width="110" height="35">
+      </a>
+    </div>
+    <!-- <form class="container-fluid justify-content-start">
+        <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+      </form> -->
+      <span style="padding-right: 6px;">
+
+          <button class="btn btn-sm btn-outline-secondary" (click)="logout()">Logout</button>
+      </span>
+  </nav>
+  <nav class="navbar bg-body-tertiary second-navbar">
+    <!-- <div class="container-fluid"> -->
+        <!-- <button class="navbar-toggler" style="margin-left: 16px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+      <!-- </div> -->
+      <button class="btn btn-primary" style="margin-left: 20px;border-radius: 24px;background-color: #8f44c0;" type="submit">System</button>
+      <button class="btn btn-primary" type="submit">SMC</button>
+      <button class="btn btn-primary" type="submit">Configuration & Setup</button>
+      <button class="btn btn-primary" type="submit">Table Maintenance</button>
+      <button class="btn btn-primary" type="submit">Dashboard View</button>
+
+
+
+  </nav>
+  <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> 
+  </button> -->
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <mat-chip-listbox aria-label="Fish selection">
+
+      <button class="btn btn-primary" style="margin-left: 20px;border-radius: 24px;background-color: #8f44c0;" type="submit">System</button>
+      <button class="btn btn-primary" style="margin-left: 20px;border-radius: 24px;background-color: #8f44c0;" type="submit">System</button>
+
+    </mat-chip-listbox>
+  </div>
+
+  <!-- <div class="container">
+    <h1 style="text-align: center;padding-top: 30%;">
+        Welcome to PayPlus Landing Page.
+    </h1>
+  </div> -->
+  
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0" style="width: 14%;background-color: white;">
+            <div id="sidebar" class="collapse collapse-horizontal show border-end">
+              
+             <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">{{dataSource}}
+                  <!-- This is the tree node template for leaf nodes -->
+                  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <button mat-icon-button disabled></button>
+                    {{node.BuNode}}
+                  </mat-tree-node>
+                  <!-- This is the tree node template for expandable nodes -->
+                  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                    <button mat-icon-button matTreeNodeToggle
+                            [attr.aria-label]="'Toggle ' + node.name">
+                      <mat-icon class="mat-icon-rtl-mirror">
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                      </mat-icon>
+                    </button>
+                    {{node.name}}
+                  </mat-tree-node>
+                </mat-tree>
+              
+           
+            </div>
+        </div>
+
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" style="flex-shrink: unset;" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+
+         <main class="col ps-md-2 pt-2">
+            <div class="page-header pt-3">
+                <h2>Landing Page for Payplus Activity.</h2>
+            </div>
+            <p class="lead">A offcanvas "push" vertical nav menu example.</p>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                  
+                    <p>This is a simple collapsing sidebar menu for Bootstrap 5. Unlike the Offcanvas component that overlays the content, this sidebar will "push" the content. <p>
+                      <p>This is a simple collapsing sidebar menu for Bootstrap 5. Unlike the Offcanvas component that overlays the content, this sidebar will "push" the content. <p>
+                      </div>
+            </div>
+        </main> 
+        <main class="col ps-md-2 pt-2">
+            <div id="item-1">
+              <h4>System</h4>
+              <div class="row">
+                <div class="col-12">
+              <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
+                </div>
+                </div>
+            </div>
+            <div id="item-1-1">
+              <h5>Treasury  security</h5>
+              <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
+            </div>
+            <div id="item-1-2">
+              <h5>Treasury  security details</h5>
+              <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
+            </div>
+            
+            
+            </main>
+        </div>
+    </div>
+</div>
+
