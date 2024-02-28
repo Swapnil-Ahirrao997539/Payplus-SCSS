@@ -10,10 +10,9 @@ interface FoodNode {
   name: string;
   children?: FoodNode[];
 }
-
-// let TREE_DATA: FoodNode[] = [
+// const TREE_DATA: FoodNode[] = [
 //   {
-//     name: 'System',
+//     name: 'Fruit',
 //     children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
 //   },
 //   {
@@ -43,7 +42,7 @@ interface ExampleFlatNode {
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent {
-  convertedData:any;
+   convertedData:any;
    constructor( private authService:AuthService,
     private _http: HttpClient,
     private ngxXml2jsonService : NgxXml2jsonService
@@ -51,6 +50,8 @@ export class UserPageComponent {
     // this.dataSource.data = TREE_DATA;
     this.loadParentXML();
   }
+
+  // SET HEADERS and CALL SAMPLE XML DATA.
 
   loadParentXML() {  
     this._http.get('/assets/users2.xml',  
@@ -63,55 +64,84 @@ export class UserPageComponent {
         responseType: 'text'  
       })  
       .subscribe((data) => {  
-        this.parseXML2(data)  
-        
+        this.parseXML2(data)   
       });  
-      
   }  
 
-  
+   // CONVERT XML DATA INTO JSON format
     parseXML2(data:any) {  
       var parser = new DOMParser();
       let xmlDoc = parser.parseFromString(data, 'text/xml'); 
-      // let firstEmploye = xmlDoc.getElementsByTagName('GroupCbrNode')[0];
-      let standardObj :any = this.ngxXml2jsonService.xmlToJson(xmlDoc);
+      let standardObj :any = this.ngxXml2jsonService.xmlToJson(xmlDoc); // Converted into JSON
       this.convertedData = JSON.parse(JSON.stringify(standardObj));
     
       // console.log("JSON object =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode);
           // this.dataSource.data = this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode;
-          console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode);
-          for(let i=0;i<this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode.length;i++) {
-            console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[i].FIELD_NM[9]);
+          // console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode);
+          console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode);
+          this.drawTree(this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode);
 
-          }
+          // for(let i=0;i<this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode.length;i++) {
+          //   console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[i].FIELD_NM[9]);
+
+          // }
           
-          const TREE_DATA: FoodNode[] = [
+          // const TREE_DATA: FoodNode[] = [
+          //   {
+          //     name: 'System',
+          //     children: [{name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[0].FIELD_NM[9]}, 
+          //     {name: 'Banana'}, {name: 'Fruit loops'}],
+          //   },
+          //   {
+          //     name: 'Control Branch',
+          //     children: [
+          //       {
+          //         name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
+          //         children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+          //       },
+          //       {
+          //         name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
+          //         children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+          //       },
+          //     ],
+          //   },
+          // ];
+
+          // this.dataSource.data = TREE_DATA;
+
+    }
+    // FUNCTION TO DRAW NESTED TREE ON RECEIVED RESPONSE
+    drawTree(data:any) {
+        let parentChildren: any = {};
+         
+         
+        
+        let TREE_DATA: FoodNode[] = [
             {
-              name: 'System',
-              children: [{name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[0].FIELD_NM[9]}, {name: 'Banana'}, {name: 'Fruit loops'}],
+              name: data[0].FIELD_NM[2],
+              children: [{name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[0].FIELD_NM[9]}, 
+              {name: 'Banana'}, {name: 'Fruit loops'}],
             },
             {
-              name: 'Control Branch',
+              name: data[1].FIELD_NM[9],
               children: [
                 {
                   name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
                   children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
                 },
-                {
-                  name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
-                  children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-                },
+                // {
+                //   name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
+                //   children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+                // },
               ],
             },
-          ];
+         ];
 
-          this.dataSource.data = TREE_DATA;
-
-
+         this.dataSource.data = TREE_DATA;
 
     }
 
-  
+  // TREE DRAW RELATED STUFFS
   private _transformer = (node: FoodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -135,7 +165,8 @@ export class UserPageComponent {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
  
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-
+  
+  // LOGOUT FROM CURRENT SESSION
   logout(){
     this.authService.logout();
   }
