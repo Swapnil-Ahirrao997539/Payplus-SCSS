@@ -81,39 +81,54 @@ export class UserPageComponent {
           console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode);
           this.drawTree(this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode);
 
-          // for(let i=0;i<this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode.length;i++) {
-          //   console.log("JSON object11 =====>",this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[i].FIELD_NM[9]);
-
-          // }
-          
-          // const TREE_DATA: FoodNode[] = [
-          //   {
-          //     name: 'System',
-          //     children: [{name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode[0].FIELD_NM[9]}, 
-          //     {name: 'Banana'}, {name: 'Fruit loops'}],
-          //   },
-          //   {
-          //     name: 'Control Branch',
-          //     children: [
-          //       {
-          //         name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
-          //         children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-          //       },
-          //       {
-          //         name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
-          //         children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-          //       },
-          //     ],
-          //   },
-          // ];
-
-          // this.dataSource.data = TREE_DATA;
 
     }
     // FUNCTION TO DRAW NESTED TREE ON RECEIVED RESPONSE
     drawTree(data:any) {
-        let parentChildren: any = {};
-         
+        let parentChildren: any = [];
+        let nodeChildren: any = [{buNode:'abc',feild_name:'xyz'}];
+
+        let childArray1 : any =  [{name: 'Brucolli'}, {name: 'Brussels sprouts'}];
+        let childArray : any = [{name:'Test',children: [{name: ''}, {name: 'Brussels sprouts'}]}];
+
+
+          for(let i=0;i<data[1].BuNode.GroupBuNode.length;i++) {
+            parentChildren.push(data[1].BuNode.GroupBuNode[i].FIELD_NM[9]);
+            if(data[1].BuNode.GroupBuNode[i].BuNode) {
+              nodeChildren.push(
+                {
+                  buNode:data[1].BuNode.GroupBuNode[i].BuNode,
+                  feild_name: data[1].BuNode.GroupBuNode[i].FIELD_NM
+                 } )}
+
+          }
+          nodeChildren.splice(0,1);
+
+          for(let k=0;k<parentChildren.length;k++) {
+             childArray.push({name:parentChildren[k],children:childArray1});
+            // Sub child WIP <== Prepare childArray1
+            //  if(parentChildren[k] == )
+            // if(nodeChildren[k]) {
+ 
+              // for(let j=0;j<nodeChildren[k].length;j++) {
+                // if(parentChildren[k] == nodeChildren[j].feild_name[9]) {
+                //   childArray.push({name:parentChildren[k],children: [{name:nodeChildren[k].buNode.GroupBuNode[j].FIELD_NM[9]}]});
+                  
+                // } else {
+
+                // }
+            //     // childArray1.push({ [{name: nodeChildren[k].GroupBuNode[j].FIELD_NM[9]}]});
+            //     childArray1.push({name:nodeChildren[k].GroupBuNode[j].FIELD_NM[9]})
+                
+              // }  
+
+             //}
+           }
+
+          //  for(let j=0;j<nodeChildren.length;j++) {
+          //   // childArray.push({name:parentChildren[j],children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}]});
+
+          //  }
          
         
         let TREE_DATA: FoodNode[] = [
@@ -124,20 +139,24 @@ export class UserPageComponent {
             },
             {
               name: data[1].FIELD_NM[9],
-              children: [
-                {
-                  name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
-                  children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-                },
+              children:  childArray
+              // children : [
+              //   {
+              //     name: '',
+              //     children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+              //   },
                 // {
                 //   name: this.convertedData.GetUseConRep.BuTree.GroupBuTree.BuNode.GroupBuNode[1].BuNode.GroupBuNode,
                 //   children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
                 // },
-              ],
+              // ],
             },
          ];
 
-         this.dataSource.data = TREE_DATA;
+        //  this.dataSource.data = TREE_DATA;
+
+        
+          this.dataSource.data = TREE_DATA;
 
     }
 
