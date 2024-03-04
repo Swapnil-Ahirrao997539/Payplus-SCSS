@@ -99,36 +99,45 @@ export class UserPageComponent {
                 {
                   buNode:data[1].BuNode.GroupBuNode[i].BuNode,
                   feild_name: data[1].BuNode.GroupBuNode[i].FIELD_NM
-                 } )}
+                 } )
+              } else {
+                nodeChildren.push(
+                  {
+                    buNode: '',
+                    feild_name: data[1].BuNode.GroupBuNode[i].FIELD_NM
+                   } )
+              } 
 
           }
           nodeChildren.splice(0,1);
+          childArray1.splice(0,2);
+          childArray.splice(0,1);
 
           for(let k=0;k<parentChildren.length;k++) {
              childArray.push({name:parentChildren[k],children:childArray1});
-            // Sub child WIP <== Prepare childArray1
-            //  if(parentChildren[k] == )
-            // if(nodeChildren[k]) {
- 
-              // for(let j=0;j<nodeChildren[k].length;j++) {
-                // if(parentChildren[k] == nodeChildren[j].feild_name[9]) {
-                //   childArray.push({name:parentChildren[k],children: [{name:nodeChildren[k].buNode.GroupBuNode[j].FIELD_NM[9]}]});
+             
+               for(let j=0;j<nodeChildren.length;j++) {
+                 if(parentChildren[k] == nodeChildren[j].feild_name[9]) {    // Compare first level and their respective buNode
+                  if( nodeChildren[j].buNode) {           
+                    for(let g=0 ;g<nodeChildren[j].buNode.GroupBuNode.length;g++) {
+                      childArray1.push({name:nodeChildren[j].buNode.GroupBuNode[g].FIELD_NM[9]})  // Collect buNode groups for first level
+                    }
+                  }
+                   else {
+                    childArray1.push({name: "Empty Data"})  // Collect buNode groups for first level
+                  }
+
                   
-                // } else {
+                  childArray[k].children.push(childArray1); 
+                  childArray1 =[]; 
+                   
+                  } 
+          
+               }
 
-                // }
-            //     // childArray1.push({ [{name: nodeChildren[k].GroupBuNode[j].FIELD_NM[9]}]});
-            //     childArray1.push({name:nodeChildren[k].GroupBuNode[j].FIELD_NM[9]})
-                
-              // }  
-
-             //}
+     
            }
 
-          //  for(let j=0;j<nodeChildren.length;j++) {
-          //   // childArray.push({name:parentChildren[j],children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}]});
-
-          //  }
          
         
         let TREE_DATA: FoodNode[] = [
@@ -153,7 +162,6 @@ export class UserPageComponent {
             },
          ];
 
-        //  this.dataSource.data = TREE_DATA;
 
         
           this.dataSource.data = TREE_DATA;
