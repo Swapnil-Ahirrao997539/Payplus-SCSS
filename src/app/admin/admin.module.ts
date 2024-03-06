@@ -8,6 +8,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,6 +25,10 @@ import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular
     MatIconModule,
     MatTreeModule,
     
+    
+  ],
+  providers: [
+    provideAnimations()
   ]
 })
 export class AdminModule { }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideAnimations } from '@angular/platform-browser/animations';
 // import { ScrollToTopModule } from '@finastra/angular-components/scroll-to-top';
 
 // import { ScrollToTopModule } from '@finastra/angular-components/scroll-to-top';
@@ -22,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DemoMaterialModule
     // ScrollToTopModule
   ],
-  providers: [],
+  providers: [provideAnimations()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
