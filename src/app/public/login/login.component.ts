@@ -54,16 +54,17 @@ export class LoginComponent {
     this._http.post('http://localhost:8080/thinClient/servlet/MainServlet',data,
     {  
       headers: new HttpHeaders()  
-        .set('Content-Type', 'application/x-www-form-urlencoded') ,
-        //.append('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT'),
-        // .append('Access-Control-Allow-Origin', 'http://localhost:8080/thinClient/servlet/MainServlet'), 
-        // .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
-                // .append('Access-Control-Allow-Origin', 'http://localhost:4200/'),
+      .set('Content-Type', 'application/x-www-form-urlencoded') 
+      .append('Access-Control-Allow-Methods', 'POST')  
+      .append('Access-Control-Allow-Origin', '*')  
+      .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
+      responseType: 'text' 
 
-        responseType: 'text'  
     })  
     .subscribe((data) => {  
       
+    },error =>{
+        alert('Internal Server Error'+ '' +JSON.stringify(error.status));
     }); 
   }
 

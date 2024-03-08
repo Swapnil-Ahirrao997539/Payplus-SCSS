@@ -183,6 +183,7 @@ export class UserPageComponent {
   // LOGOUT FROM CURRENT SESSION
   logout(){
     this.authService.logout();
+
   }
 
 }
