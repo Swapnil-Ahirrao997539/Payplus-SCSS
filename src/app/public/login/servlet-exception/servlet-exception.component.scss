@@ -1,0 +1,121 @@
+.background-image {
+    background-color: #fff;
+    /* background-image: url('../../../assets/login_back (1).jpg'); */
+    background-repeat: no-repeat;
+    }
+    
+    .bg-img{
+       background-color: #fff;
+       background-image: url('../../../../assets/login_rightside.jpg');
+       /* background-repeat: no-repeat; */
+       /* background-size: 100% 100%; */
+    }
+    .container {
+       max-width: 100%;
+    }
+    .fin-logo{
+       width: 122px;
+       min-width: 122px;
+       height: 60px;
+       margin-bottom: 60px;
+    }
+    .uxg-h5 {
+       font: 700 18px/21px "Futura EF", "futura-pt", "Futura", "Hind", "Verdana", "Arial Black", sans-serif;
+       letter-spacing: normal;
+       margin: 0 0 16px;
+    }
+    
+    .uxg-display-6 {
+       font: 300 20px/30px Roboto, roboto, "Helvetica Neue", sans-serif;
+       letter-spacing: normal;
+       margin-bottom: 48px;
+    }
+    
+    .uxg-login-container {
+       box-sizing: border-box;
+       display: flex;
+       flex-direction: column;
+       max-width: 496px;
+       min-width: 220px;
+       width: 80vw;
+       height: 100%;
+       align-items: flex-start;
+       padding: 48px;
+    }
+    
+    #container {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 48px;
+         h1 {
+            color:#333;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            font-size:21px;
+         }
+         /* input {
+            background-color: #b06cee1a;;
+            color:#666;
+            padding: 10px 20px;
+            border: 0px;
+            margin-bottom: -3px;
+            width: 380px;
+            /* border-bottom:1px solid #7d0db2; */
+         /* }  */
+    
+         .mat-mdc-text-field-wrapper {
+          background-color: #b06cee1a;;
+          color:#666;
+          border: 0px;
+          margin-bottom: -3px;
+          width: 380px;
+          }
+     
+         button.btn{
+            width:380px;
+            text-align: center;
+            padding: 11px 0;
+            background-color: rgb(125 13 178);
+            color:#fff;
+            border:0px;
+            outline: none;
+            margin-top: 26px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 34px;
+             &[disabled] {
+                background-color: #ce88ef;
+                cursor:not-allowed;
+                border-radius: 34px;
+             }
+         }
+         .mat-input{
+          font-size: 75%;
+          margin-top: 0.2227em;
+          top: calc(100% - 1.79167em);
+          color: rgba(0,0,0,0.6);
+          margin-bottom: 1.8667em;
+      
+         }
+    }
+    
+    .right-align {
+       float:right;
+    }
+    button + button {
+       margin-left: 12px;
+     }
+    .text-align-end {
+       text-align: end;
+       color:white
+    }
+    .lock-icon{
+       position: absolute;
+       left: 196px;
+       top: 348px;
+    }
+    
+    

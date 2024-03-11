@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxXml2jsonService } from 'ngx-xml2json';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -16,7 +17,11 @@ export class LoginComponent {
     password:['',Validators.required]
 
   })
-  constructor( private authService:AuthService, private fb:FormBuilder,private route:Router,private _http: HttpClient) {
+  constructor( private authService:AuthService, private fb:FormBuilder,private route:Router,private _http: HttpClient,
+    private ngxXml2jsonService : NgxXml2jsonService
+
+    
+    ) {
     this.postCall();
   }
 
@@ -43,28 +48,41 @@ export class LoginComponent {
   }
 
   postCall() {  
-    let data:any = {
-      '@FORM_NAME@': 'frmVersion',
-      '@COMMAND_EVENT@': 'eventGetVersion',
-      'paramNmSeq': '1egv1jld1k741j0s1ldi1lll1nce1fgc1jsu1fnn1h0y1d261dgc1b3c1egv1b4m1dia1d401h1o1fnf1jsw1fgi1ndc1lk51le01j021k721jm51egv',
-      'FPRINT': '18qe19q1194s1abc19j21bpb19j41abq194y19qd18qw',
-      //'paramNmSeq': '1iej1iev1j7p1lkv1k701lso1db51aqc1d401p3n1lqy1e8o1jcu1d991nbm1lk11ra41njf1qho1aqc1db51bbr1km61je81ll31gfz1lkn1jf21kkg1baf1d991ap61qjm1nkj1rc21llp1ne41db51jgg1eau1lt01p631d261ap61d991lra1k761lkv1j7d1ifb1ifn',
-      // 'FPRINT': '19bn18cg19q11a4f1a4h1bpb1a4d1a4f19qd18ce19cb'
-    }
-    this._http.post('http://localhost:8080/thinClient/servlet/MainServlet',data,
+    let data1:string =`@FORM_NAME@: frmVersion
+       @COMMAND_EVENT@: eventGetVersion
+       paramNmSeq: 1egv1jld1k741j0s1ldi1lll1nce1fgc1jsu1fnn1h0y1d261dgc1b3c1egv1b4m1dia1d401h1o1fnf1jsw1fgi1ndc1lk51le01j021k721jm51egv
+       FPRINT: 18qe19q1194s1abc19j21bpb19j41abq194y19qd18qw`
+    
+
+    this._http.post('http://localhost:8080/thinClient/servlet/MainServlet?@FORM_NAME@=frmVersion&@COMMAND_EVENT@=eventGetVersion',data1,
     {  
+      observe: 'response',    
       headers: new HttpHeaders()  
       .set('Content-Type', 'application/x-www-form-urlencoded') 
       .append('Access-Control-Allow-Methods', 'POST')  
-      .append('Access-Control-Allow-Origin', '*')  
-      .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
+      // .append('Access-Control-Allow-Origin', '*')  
+      .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin,Origin, Access-Control-Request-Method"),  
       responseType: 'text' 
 
     })  
-    .subscribe((data) => {  
-      
+    .subscribe((data:any) => {  
+      var parser = new DOMParser();
+      let convertedData = JSON.parse(JSON.stringify(data.body));
+      console.log(convertedData);
+      let xmlDoc = parser.parseFromString(convertedData, 'text/xml'); 
+      console.log(xmlDoc);
+      let standardObj :any = this.ngxXml2jsonService.xmlToJson(xmlDoc); // Converted into JSON
+      console.log(standardObj);     
+      if(!standardObj.SecurityException) {                               //**Check whether throw exception */
+        this.route.navigate(['/servlet-exception',{data:standardObj.SecurityException.DATA.MSG}])   //** Redirect with error string to error page */
+      } else {
+        this.route.navigateByUrl('/');
+
+      }
+
+
     },error =>{
-        alert('Internal Server Error'+ '' +JSON.stringify(error.status));
+        alert('Internal Server Error'+ '' +JSON.parse(JSON.stringify(error.status)));
     }); 
   }
 

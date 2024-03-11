@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PublicComponent } from './public.component';
 import { LoginComponent } from './login/login.component';
+import { ServletExceptionComponent } from './login/servlet-exception/servlet-exception.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,9 @@ const routes: Routes = [
      component:PublicComponent,
 
      children:[
-      {path:'',component: LoginComponent}
+      {path:'',component: LoginComponent},
+      {path:'servlet-exception',component: ServletExceptionComponent}
+
      ]
   }
 ];
