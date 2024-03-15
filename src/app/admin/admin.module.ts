@@ -9,12 +9,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { LegalEntiryComponent } from './legal-entiry/legal-entiry.component';
+import { DemoMaterialModule } from 'src/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     UserPageComponent,
+    LegalEntiryComponent,
     
   ],
   imports: [
@@ -24,7 +28,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatIconModule,
     MatTreeModule,
-    
+    DemoMaterialModule,
+    ReactiveFormsModule,
+
     
   ],
   providers: [

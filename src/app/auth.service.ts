@@ -36,15 +36,18 @@ export class AuthService {
       this.session= user;
       localStorage.setItem('session',JSON.stringify(this.session));
     }
+     
+
 
     return user;
 
   }
 
   logout(){
+    this.router.navigateByUrl('/');
+    window.location.reload();
     this.session = undefined;
     localStorage.removeItem('session');
-    this.router.navigateByUrl('/');
 
   }
 }

@@ -24,10 +24,10 @@
         </button> -->
       <!-- </div> -->
       <button class="btn btn-primary" style="margin-left: 20px;border-radius: 24px;background-color: #8f44c0;" type="submit">System</button>
-      <button class="btn btn-primary" type="submit">SMC</button>
-      <button class="btn btn-primary" type="submit">Configuration & Setup</button>
-      <button class="btn btn-primary" type="submit">Table Maintenance</button>
-      <button class="btn btn-primary" type="submit">Dashboard View</button>
+      <button class="btn btn-primary" type="submit" routerLink="/admin">SMC</button>
+      <button class="btn btn-primary" type="submit" routerLink="/admin/legal-entity">Legal Entity</button>
+      <button class="btn btn-primary" type="submit" routerLink="/admin">Table Maintenance</button>
+      <button class="btn btn-primary" type="submit" routerLink="/admin">Dashboard View</button>
 
 
 
@@ -82,8 +82,9 @@
         </div>
 
         <div data-bs-spy="scroll" data-bs-target="#navbar-example3" style="flex-shrink: unset;" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
-
-         <main class="col ps-md-2 pt-2">
+          <br>
+          <router-outlet></router-outlet>
+         <!-- <main class="col ps-md-2 pt-2">
             <div class="page-header pt-3">
                 <h2>Landing Page for Payplus Activity.</h2>
             </div>
@@ -116,7 +117,7 @@
             </div>
             
             
-            </main>
+            </main> -->
         </div>
     </div>
 </div>
