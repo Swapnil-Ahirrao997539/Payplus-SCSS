@@ -35,23 +35,23 @@ export class LoginComponent {
   login(event:any) {
     let user = this.authService.login(this.frmLogin.value.username,this.frmLogin.value.password);
     this.loggedIn();
-    // let parser = new DOMParser();
-    // let xmlString = "<request>  <user>" + this.form.value.username + "</user> <password>" + this.form.value.password + "</password> </request>";
-    // let doc = parser.parseFromString(xmlString, "application/xml");
-    // console.log(doc);
-    // let headers = new HttpHeaders();
-    //       headers = headers.append('Content-Type', 'text/xml');
-    //       headers = headers.append('Accept', 'text/xml');
-    // let body =  '<request>' 
-    //             '<username>Username</username>' 
-    //             '<password>Password</password>' 
-    //             '</request>';
+    let parser = new DOMParser();
+    let xmlString = "<request>  <user>" + this.frmLogin.value.username + "</user> <password>" + this.frmLogin.value.password + "</password> </request>";
+    let doc = parser.parseFromString(xmlString, "application/xml");
+    console.log(doc);
+    let headers = new HttpHeaders();
+          headers = headers.append('Content-Type', 'text/xml');
+          headers = headers.append('Accept', 'text/xml');
+    let body =  '<request>' 
+                '<username>Username</username>' 
+                '<password>Password</password>' 
+                '</request>';
 
-    // if(!user) {
-    //   alert('Invalid Username or Password ');
-    // } else {
-    //    this.route.navigateByUrl('/admin');
-    // } 
+    if(!user) {
+      alert('Invalid Username or Password ');
+    } else {
+       this.route.navigateByUrl('/admin');
+    } 
   }
   loggedIn() {
 

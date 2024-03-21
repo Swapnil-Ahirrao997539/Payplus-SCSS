@@ -9,9 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { LegalEntiryComponent } from './legal-entiry/legal-entiry.component';
+import { LegalEntiryComponent } from './legal-entity/legal-entiry/legal-entiry.component';
 import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderMenuComponent } from './shared/header-menu/header-menu.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -30,9 +32,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     DemoMaterialModule,
     ReactiveFormsModule,
+    SharedModule
 
     
   ],
+  exports:[SharedModule],
   providers: [
     provideAnimations()
   ]
