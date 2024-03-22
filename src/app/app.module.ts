@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { provideAnimations } from '@angular/platform-browser/animations';
-// import { ScrollToTopModule } from '@finastra/angular-components/scroll-to-top';
+import { provideAnimations, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// import { ScrollToTopModule } from '@finastra/angular-components/scroll-to-top';
 
 @NgModule({
   declarations: [
@@ -21,8 +18,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DemoMaterialModule
-    // ScrollToTopModule
+    DemoMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [provideAnimations()],
   bootstrap: [AppComponent]

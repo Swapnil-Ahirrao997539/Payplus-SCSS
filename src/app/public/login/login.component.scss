@@ -45,7 +45,7 @@ background-repeat: no-repeat;
 
 #container {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -56,16 +56,10 @@ background-repeat: no-repeat;
         text-transform: uppercase;
         font-size:21px;
      }
-     /* input {
-        background-color: #b06cee1a;;
-        color:#666;
-        padding: 10px 20px;
-        border: 0px;
-        margin-bottom: -3px;
-        width: 380px;
-        /* border-bottom:1px solid #7d0db2; */
-     /* }  */
-
+  
+     .mat-mdc-form-field {
+      width: 380px;
+     }
      .mat-mdc-text-field-wrapper {
       background-color: #b06cee1a;;
       color:#666;
@@ -103,8 +97,12 @@ background-repeat: no-repeat;
 }
 
 .right-align {
-   float:right;
+   top: 0;
+    position: absolute;
+    right: 0;
+    padding: 12px;
 }
+
 button + button {
    margin-left: 12px;
  }

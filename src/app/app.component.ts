@@ -23,16 +23,7 @@ export class AppComponent {
       // this.loadXML();
       // this.loadParentXML()
      }  
-  // ngOnInit() {
-  //   alert('hi')
-  //    this.session = localStorage.getItem('session');
-  //    if(this.session) {
-  //     this.router.navigateByUrl('/admin');
-  //    } else {
-  //     this.router.navigateByUrl('/');
 
-  //    }
-  //  }
   loadXML() {  
     this._http.get('/assets/users.xml',  
       {  
@@ -70,7 +61,6 @@ export class AppComponent {
   parseXML(data:any) {  
     var parser = new DOMParser();
     let xmlDoc = parser.parseFromString(data, 'text/xml'); 
-    // let firstEmploye = xmlDoc.getElementsByTagName('GroupCbrNode')[0];
     let standardObj :any = this.ngxXml2jsonService.xmlToJson(xmlDoc);
     let convertedData:any = JSON.stringify(standardObj);
     console.log("==>",standardObj.CbrNode.GroupCbrNode.FIELD_NM);
@@ -78,8 +68,6 @@ export class AppComponent {
           this.feildName = standardObj.CbrNode.GroupCbrNode.FIELD_NM;
      }
      console.log("=<=>",this.feildName);
-
- 
   }
 
   parseXML2(data:any) {  
@@ -89,9 +77,7 @@ export class AppComponent {
     let standardObj :any = this.ngxXml2jsonService.xmlToJson(xmlDoc);
     let convertedData:any = JSON.stringify(standardObj);
     console.log("Parent Responce =>",standardObj);
-
     console.log("JSON object=>",convertedData);
-  
-     
+
   }
 }
