@@ -25,10 +25,12 @@ interface ExampleFlatNode {
 })
 export class UserPageComponent {
    convertedData:any;
+   userName:any;
    constructor( private authService:AuthService,
     private _http: HttpClient,
     private ngxXml2jsonService : NgxXml2jsonService
        ){
+        this.userName = localStorage.getItem('username');
     // this.dataSource.data = TREE_DATA;
     this.loadParentXML();
    

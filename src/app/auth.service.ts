@@ -35,6 +35,8 @@ export class AuthService {
     if(user) {
       this.session= user;
       localStorage.setItem('session',JSON.stringify(this.session));
+      localStorage.setItem('username',username);
+
     }
      
 
