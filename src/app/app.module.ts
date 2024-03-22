@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimations, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({

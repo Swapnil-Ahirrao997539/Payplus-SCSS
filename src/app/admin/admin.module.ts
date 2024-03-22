@@ -8,7 +8,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { LegalEntiryComponent } from './legal-entity/legal-entiry/legal-entiry.component';
 import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,21 +28,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTreeModule,
-    MatMenuModule,
-    MatToolbarModule,
     DemoMaterialModule,
     ReactiveFormsModule,
-    SharedModule
-
+    SharedModule,
     
+        
   ],
   exports:[SharedModule],
   providers: [
-    provideAnimations()
+    // provideAnimations()
   ]
 })
 export class AdminModule { }
