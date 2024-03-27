@@ -98,8 +98,19 @@
             </div>
         </div>
         </mat-grid-tile>
-        <mat-grid-tile colspan="6.5">
-           <router-outlet></router-outlet>
+        <mat-grid-tile colspan="6.5"> 
+          <div class="container" style="padding: 15px;">
+
+            <h3 *ngIf="isDisplay">{{Subheader}}</h3>
+            <!-- <app-header-menu></app-header-menu> -->
+            <h4 *ngIf="isDisplay">Subheader</h4>
+            <br>
+            <mat-grid-list cols="4" rowHeight="6:1" >
+              <mat-grid-tile colspan="3" style="padding-top: 0;" ><router-outlet></router-outlet> </mat-grid-tile>
+              <mat-grid-tile colspan="1"><app-action-toolbar *ngIf="isDisplay"></app-action-toolbar></mat-grid-tile>
+            </mat-grid-list>
+            
+          </div>
         </mat-grid-tile>
       </mat-grid-list>
 

@@ -59,9 +59,12 @@ export class LoginComponent {
     let data1 =`
     @FORM_NAME@: frmLogin
     @COMMAND_EVENT@: Submit
-    USER_ID :`+this.frmLogin.controls['username'].value+`
-    paramNmSeq: 1egv1jld1k741j0s1ldi1lll1nce1fgc1jsu1fnn1h0y1d261dgc1b3c1egv1b4m1dia1d401h1o1fnf1jsw1fgi1ndc1lk51le01j021k721jm51egv
-    FPRINT: 18qe19q1194s1abc19j21bpb19j41abq194y19qd18qw`
+    txtHiddenUserId:""
+    txtPassword:""
+    txtPasswordVisible:""
+    txtUserId :`+this.frmLogin.controls['username'].value+`
+    paramNmSeq: 1o3y1mxs1l6j1qw41jsu1tgx1nqk1oi61njf1owk1aj716kf16kf1efr1rj91rce1sbl1j7b1ns21ho71ho71hvc1xff1p4j1vv11ugo1oz21cbg1ho716kf1ai31efr1rj91qk21t3x1jm71uoj1mlc1r4z1gg71o5y1d261dgc1b3c1os31lmz1kuf1dpf1uum1v2p1vv11y161odn1kg51ho716kf1ai31efr1rj91qk21t3x1imi1r411pda1rc41pkl1qch1qxw1ok41jf61mlk1kna1inw1h9x1uh21th91gzu1kxi1i6c1xtx1w2e1r531r2v1w141xtl1i9m1l1k1h2s1thd1ugo1h6x1iki1kjc1mja1je41oiy1qvu1qal1phl1ra21pao1r3x1ilw1t291qh81rh51ehz1aj716kf1hl31kc91ob71y0k1vu91v1p1uvk1dnf1kqf1lir1op71b4m1dia1d401o4o1gfr1r2z1mji1unf1jlb1t291qh81rh51ehz1aj716kf1hl31c9u1owg1uh21vu91p571xfn1hs61hl31hl31nq41j7r1s9p1r9s1rh51ehz16kf16kf1ai31oyy1nkj1okw1nrm1thp1jsw1qxm1l6r1mzi1o6o
+    FPRINT: 18xh18xp1bi81aih19bx19q719c11ait1bi618xt18y1`
 
 
     

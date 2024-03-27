@@ -26,6 +26,8 @@ interface ExampleFlatNode {
 export class UserPageComponent {
    convertedData:any;
    userName:any;
+   Subheader:any = 'Menu Title';
+   isDisplay:boolean = false;
    constructor( private authService:AuthService,
     private _http: HttpClient,
     private ngxXml2jsonService : NgxXml2jsonService
