@@ -11,9 +11,7 @@ const routes: Routes = [
   children :[
     {
       path: '', component:UserPageComponent,
-    //  children :[
-    //   {path: 'legal-entity', component:LegalEntiryComponent}
-    // ]
+ 
     },
     {
       path:'legal-entity',

@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
-import { ActionToolbarComponent } from './action-toolbar/action-toolbar.component';
-import { HeaderMenuComponent } from './header-menu/header-menu.component';
+import { ActionToolbarComponent } from './components/action-toolbar/action-toolbar.component';
+import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { DemoMaterialModule } from 'src/material.module';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     ActionToolbarComponent,
-    HeaderMenuComponent
+    HeaderMenuComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
     DemoMaterialModule
   ],
-  exports:[HeaderMenuComponent,ActionToolbarComponent]
+  exports:[
+    HeaderMenuComponent,
+    ActionToolbarComponent,
+    HeaderComponent,
+    SidebarComponent]
 })
 export class SharedModule { }

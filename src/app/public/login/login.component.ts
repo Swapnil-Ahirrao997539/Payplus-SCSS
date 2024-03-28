@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxXml2jsonService } from 'ngx-xml2json';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/admin/shared/services/auth.service';
 import { parseString } from 'xml2js';
 import { parseNumbers } from 'xml2js/lib/processors';
 

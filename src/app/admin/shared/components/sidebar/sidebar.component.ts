@@ -1,9 +1,7 @@
+import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/admin/shared/services/auth.service';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { AuthService } from '../../services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 interface FoodNode {
@@ -19,21 +17,17 @@ interface ExampleFlatNode {
   level: number;
 }
 @Component({
-  selector: 'app-user-page',
-  templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class UserPageComponent {
-   convertedData:any;
-   userName:any;
-   Subheader:any = 'Menu Title';
-   isDisplay:boolean = false;
-   constructor( private authService:AuthService,
+export class SidebarComponent {
+  convertedData:any;
+
+  constructor( private authService:AuthService,
     private _http: HttpClient,
     private ngxXml2jsonService : NgxXml2jsonService
        ){
-        this.userName = localStorage.getItem('username');
-    // this.dataSource.data = TREE_DATA;
     this.loadParentXML();
    
     
@@ -183,11 +177,4 @@ export class UserPageComponent {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
  
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-  
-  // LOGOUT FROM CURRENT SESSION
-  logout(){
-    this.authService.logout();
-
-  }
-
 }
