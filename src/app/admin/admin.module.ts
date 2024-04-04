@@ -16,6 +16,7 @@ import { HeaderMenuComponent } from './shared/components/header-menu/header-menu
 import { SharedModule } from './shared/shared.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AdminComponent,
     UserPageComponent,
     LegalEntiryComponent,
+    // HeaderComponent
     
   ],
   imports: [

@@ -7,7 +7,8 @@ import { LegalEntityModule } from './legal-entity/legal-entity.module';
 import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [
-  {path:'',component: AdminComponent ,
+  {path:'',
+  component: AdminComponent ,
   children :[
     {
       path: '', component:UserPageComponent,

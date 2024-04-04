@@ -7,6 +7,7 @@ import { DemoMaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimations, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     ReactiveFormsModule,
     DemoMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ButtonModule
   ],
   providers: [provideAnimations()],
   bootstrap: [AppComponent]

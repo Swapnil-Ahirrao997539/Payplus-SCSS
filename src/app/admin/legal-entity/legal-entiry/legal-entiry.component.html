@@ -11,18 +11,42 @@
           <mat-form-field appearance="fill" style="width: 80%;">
             <mat-icon matPrefix>perm_identity</mat-icon>
             <mat-label>Address Line1</mat-label>
-            <input matInput placeholder="Please enter your username or ID" formControlName="username"/>
+            <input matInput placeholder="Please enter your username or ID" formControlName="address1"/>
             <!-- <mat-hint>Please enter your username or ID</mat-hint> -->
 
           </mat-form-field><br>
           <mat-form-field appearance="fill" style="width: 80%;">
             <mat-icon matPrefix>perm_identity</mat-icon>
             <mat-label>Address Line2</mat-label>
-            <input matInput placeholder="Please enter your username or ID" formControlName="username"/>
+            <input matInput placeholder="Please enter your username or ID" formControlName="address2"/>
             <!-- <mat-hint>Please enter your username or ID</mat-hint> -->
 
           </mat-form-field><br>
           <button mat-flat-button class="btn" color="primary" (click)="submit()" ><mat-icon>arrow_right_alt</mat-icon>
             Submit</button>
     </div>
+
+    <!-- Table -->
+<!--     
+<div class="card">
+  <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+          <tr>
+              <td>{{ product.code }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.category }}</td>
+              <td>{{ product.quantity }}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div> -->
+
 </div>

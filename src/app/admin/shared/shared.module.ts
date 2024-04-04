@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ActionToolbarComponent } from './components/action-toolbar/action-toolbar.component';
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { DemoMaterialModule } from 'src/material.module';
-import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AgGridComponent } from './components/ag-grid/ag-grid.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ActionToolbarComponent,
     HeaderMenuComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    AgGridComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderMenuComponent,
     ActionToolbarComponent,
     HeaderComponent,
-    SidebarComponent]
+    SidebarComponent
+  ]
 })
 export class SharedModule { }

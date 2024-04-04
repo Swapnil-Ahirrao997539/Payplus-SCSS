@@ -1,9 +1,60 @@
 
   <app-header></app-header>
+  <!-- 2nd nav for menu -->
+
+  <mat-toolbar style="height: 5vh;background-color: white;">
+    
+    <button mat-raised-button routerLink="/admin" color="primary"> System</button>&nbsp;
+    <button mat-raised-button  [matMenuTriggerFor]="smc"routerLink="/admin" color="primary"> SMC</button>&nbsp;
+    <button mat-raised-button  [matMenuTriggerFor]="Configuration" color="primary"> Configuration & Setup</button>&nbsp;
+    <button mat-raised-button  [matMenuTriggerFor]="animals"routerLink="/admin" color="primary"> Table Maintenance</button>&nbsp;
+    <button mat-raised-button  [matMenuTriggerFor]="animals" routerLink="/admin" color="primary"> Dashboard View</button>
+    <span class="example-spacer"></span>
+
+    <mat-menu #animals="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+      <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+    </mat-menu>
+    <mat-menu #smc="matMenu">
+      <button mat-menu-item >Session Controls</button>
+      <button mat-menu-item >Tuxedo Queue Monitor</button>
+    </mat-menu>
+    <mat-menu #Configuration="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="Create">Create</button>
+    </mat-menu>
+    <mat-menu #Create="matMenu">
+      <button mat-menu-item >Location</button>
+      <button mat-menu-item routerLink="/admin/legal-entity">Legal Entity</button>
+      <button mat-menu-item >Bank Relationship</button>
+      <button mat-menu-item>Bank Location</button>
+      <button mat-menu-item>Fund Group</button>
+      <button mat-menu-item>Financial Pool</button>
+
+    </mat-menu>
+    <mat-menu #vertebrates="matMenu">
+      <button mat-menu-item >Fishes</button>
+      <button mat-menu-item >Amphibians</button>
+      <button mat-menu-item >Reptiles</button>
+      <button mat-menu-item>Birds</button>
+      <button mat-menu-item>Mammals</button>
+    </mat-menu>
+    
+    <mat-menu #invertebrates="matMenu">
+      <button mat-menu-item>Insects</button>
+      <button mat-menu-item>Molluscs</button>
+      <button mat-menu-item>Crustaceans</button>
+      <button mat-menu-item>Corals</button>
+      <button mat-menu-item>Arachnids</button>
+      <button mat-menu-item>Velvet worms</button>
+      <button mat-menu-item>Horseshoe crabs</button>
+    </mat-menu>
+    
+  </mat-toolbar>
   <!-- Sidebar -->
       <mat-grid-list cols="8" rowHeight="88vh" >
         <mat-grid-tile colspan="0.8" style="    border-right: 1px solid rgba(0, 0, 0, .12);">
         <app-sidebar></app-sidebar>
+        
         </mat-grid-tile>
         <mat-grid-tile colspan="6.5"> 
           <div class="container" style="padding: 15px;">
