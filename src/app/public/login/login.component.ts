@@ -62,6 +62,7 @@ export class LoginComponent {
   loggedIn() {
 
     console.log('Form Data'+ JSON.stringify(this.frmLogin.value))
+    let strofbu : any  = this.authService.obfuscate(this.frmLogin.controls['username'].value);
 
     let data1: FormData = new FormData();
     data1.append('@FORM_NAME@','frmLogin');
@@ -70,7 +71,7 @@ export class LoginComponent {
     data1.append('txtPassword','')
     data1.append('txtPasswordVisible','')
     data1.append('txtLanguage','English')
-    data1.append('txtUserId','1dav1ew11jzp1k091eu51d9j')
+    data1.append('txtUserId',strofbu)
     data1.append('paramNmSeq','1egv1gg11j7p1o4y1jsu1nkf1ime1hm91jeo1lk51i0d1bhi1e8o1emu1egv1b4m1dia1d401hu01gfr1rh51nbu1to01jlb1sv61pht1oiw1rhh1mja1kjc1kxi1h6x1aj71eau1biw1i8i1j0u1i0v1njj1jzz1nkf1i0v1j001i7g1bhi1e8o1ai31h9x1l1k1kna1mlk1rix1ok61pkd1sws1jm71tou1ndw1rj91gg71hti1d261dgc1b3c1egv1ep41eau1biw1i1d1lll1jem1hn11im01njj1jsw1o5o1j7d1gfx1egv')
     data1.append('FPRINT','1a4718qk1bb518xr1bb318xr1bb118qq1a4n')
     data1.append('@SESSION_ID@','')
@@ -84,7 +85,8 @@ export class LoginComponent {
 
     })  
     .subscribe((data:any) => {  
-       // Success resp
+       
+        // Success resp
         // let data2: FormData = new FormData();
         // data2.append('@FORM_NAME@','frmVALogin');
         // data2.append('@COMMAND_EVENT@','Submit');
@@ -95,6 +97,8 @@ export class LoginComponent {
         alert('Internal Server Error'+ '' +JSON.parse(JSON.stringify(error.status)));
     }); 
   }
+
+  
  
   login302Call(){
     this._http.post('http://localhost:8080/thinClient/servlet/MainServlet?statusCd302=302',
@@ -106,8 +110,8 @@ export class LoginComponent {
     })  
     .subscribe((data:any) => {  
        // Success resp
-
-  
+       // Catch session ID pass to methode 
+       
     },error =>{
         alert('Internal Server Error'+ '' +JSON.parse(JSON.stringify(error.status)));
     }); 
